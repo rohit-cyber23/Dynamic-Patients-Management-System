@@ -1,17 +1,17 @@
-# Dynamic-Patients-Management-System
+# Dynamic-Patients-Management-System<br>
 This C-based Dynamic Patient Management System enhances patient record management in healthcare. It supports unlimited entries with a user-friendly interface, capturing details like ID, name, age, gender, and contact information. Utilizing dynamic memory allocation, this project demonstrates effective software solutions for healthcare efficiency.<br>
 <br>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stdio.h><br>
+#include <stdlib.h><br>
+#include <string.h><br>
 
-// Define the maximum number of patients (dynamic)
-typedef struct {
-    int id;                 // Patient ID
-    char name[50];         // Patient Name
-    int age;               // Patient Age
-    char gender[10];       // Patient Gender
-    char contact[15];      // Patient Contact Number
+// Define the maximum number of patients (dynamic)<br>
+typedef struct {<br>
+    int id;                 // Patient ID<br>
+    char name[50];         // Patient Name<br>
+    int age;               // Patient Age<br>
+    char gender[10];       // Patient Gender<br>
+    char contact[15];      // Patient Contact Number<br>
 } Patient;
 
 Patient *patients = NULL; // Pointer to hold the patient records
