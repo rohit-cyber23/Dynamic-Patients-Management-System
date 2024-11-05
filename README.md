@@ -12,35 +12,35 @@ typedef struct {<br>
     int age;               // Patient Age<br>
     char gender[10];       // Patient Gender<br>
     char contact[15];      // Patient Contact Number<br>
-} Patient;
+} Patient;<br>
 
-Patient *patients = NULL; // Pointer to hold the patient records
-int patientCount = 0;     // Current number of patients
-int patientCapacity = 0;  // Current capacity of the array
+Patient *patients = NULL; // Pointer to hold the patient records<br>
+int patientCount = 0;     // Current number of patients<br>
+int patientCapacity = 0;  // Current capacity of the array<br>
 
-// Function to add a new patient
-void addPatient() {
-    // Increase capacity if needed
-    if (patientCount >= patientCapacity) {
-        patientCapacity = patientCapacity == 0 ? 1 : patientCapacity * 2; // Double the capacity
-        patients = realloc(patients, patientCapacity * sizeof(Patient)); // Reallocate memory
-        if (patients == NULL) {
-            printf("Memory allocation failed!\n");
+// Function to add a new patient<br>
+void addPatient() {<br>
+    // Increase capacity if needed<br>
+    if (patientCount >= patientCapacity) {<br>
+        patientCapacity = patientCapacity == 0 ? 1 : patientCapacity * 2; // Double the capacity<br>
+        patients = realloc(patients, patientCapacity * sizeof(Patient)); // Reallocate memory<br>
+        if (patients == NULL) {<br>
+            printf("Memory allocation failed!\n");<br>
             exit(1);
-        }
-    }
-
-    Patient newPatient;
-    newPatient.id = patientCount + 1;
-
-    printf("Enter patient name: ");
-    getchar();  // Consume newline character from previous input
-    fgets(newPatient.name, sizeof(newPatient.name), stdin);
-    newPatient.name[strcspn(newPatient.name, "\n")] = 0; // Remove newline
-
-    printf("Enter patient age: ");
-    scanf("%d", &newPatient.age);
-
+        }<br>
+    }<br>
+<br>
+    Patient newPatient;<br>
+    newPatient.id = patientCount + 1;<br>
+<br>
+    printf("Enter patient name: ");<br>
+    getchar();  // Consume newline character from previous input<br>
+    fgets(newPatient.name, sizeof(newPatient.name), stdin);<br>
+    newPatient.name[strcspn(newPatient.name, "\n")] = 0; // Remove newline<br>
+<br>
+    printf("Enter patient age: ");<br>
+    scanf("%d", &newPatient.age);<br>
+<br>
     printf("Enter patient gender: ");
     getchar(); // Consume newline
     fgets(newPatient.gender, sizeof(newPatient.gender), stdin);
