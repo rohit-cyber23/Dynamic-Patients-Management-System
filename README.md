@@ -31,130 +31,130 @@ void addPatient() {<br>
             exit(1);
         }<br>
     }<br>
-<br>
+
     Patient newPatient;<br>
     newPatient.id = patientCount + 1;<br>
-<br>
+
     printf("Enter patient name: ");<br>
     getchar();  // Consume newline character from previous input<br>
     fgets(newPatient.name, sizeof(newPatient.name), stdin);<br>
     newPatient.name[strcspn(newPatient.name, "\n")] = 0; // Remove newline<br>
-<br>
+
     printf("Enter patient age: ");<br>
     scanf("%d", &newPatient.age);<br>
-<br>
-    printf("Enter patient gender: ");
-    getchar(); // Consume newline
-    fgets(newPatient.gender, sizeof(newPatient.gender), stdin);
-    newPatient.gender[strcspn(newPatient.gender, "\n")] = 0; // Remove newline
 
-    printf("Enter patient contact: ");
-    fgets(newPatient.contact, sizeof(newPatient.contact), stdin);
-    newPatient.contact[strcspn(newPatient.contact, "\n")] = 0; // Remove newline
+    printf("Enter patient gender: ");<br>
+    getchar(); // Consume newline<br>
+    fgets(newPatient.gender, sizeof(newPatient.gender), stdin);<br>
+    newPatient.gender[strcspn(newPatient.gender, "\n")] = 0; // Remove newline<br>
 
-    patients[patientCount++] = newPatient;
-    printf("Patient added successfully!\n");
-}
+    printf("Enter patient contact: ");<br>
+    fgets(newPatient.contact, sizeof(newPatient.contact), stdin);<br>
+    newPatient.contact[strcspn(newPatient.contact, "\n")] = 0; // Remove newline<br>
 
-// Function to view all patients
-void viewPatients() {
-    if (patientCount == 0) {
-        printf("No patients to display.\n");
-        return;
-    }
+    patients[patientCount++] = newPatient;<br>
+    printf("Patient added successfully!\n");<br>
+}<br>
 
-    printf("\nPatient List:\n");
-    printf("ID\tName\t\tAge\tGender\tContact\n");
-    for (int i = 0; i < patientCount; i++) {
-        printf("%d\t%s\t%d\t%s\t%s\n", patients[i].id, patients[i].name, patients[i].age, patients[i].gender, patients[i].contact);
-    }
-}
+// Function to view all patients<br>
+void viewPatients() {<br>
+    if (patientCount == 0) {<br>
+        printf("No patients to display.\n");<br>
+        return;<br>
+    }<br>
 
-// Function to update patient details
-void updatePatient() {
-    int id;
-    printf("Enter patient ID to update: ");
-    scanf("%d", &id);
+    printf("\nPatient List:\n");<br>
+    printf("ID\tName\t\tAge\tGender\tContact\n");<br>
+    for (int i = 0; i < patientCount; i++) {<br>
+        printf("%d\t%s\t%d\t%s\t%s\n", patients[i].id, patients[i].name, patients[i].age, patients[i].gender, patients[i].contact);<br>
+    }<br>
+}<br>
 
-    if (id <= 0 || id > patientCount) {
-        printf("Invalid patient ID.\n");
-        return;
-    }
+// Function to update patient details<br>
+void updatePatient() {<br>
+    int id;<br>
+    printf("Enter patient ID to update: ");<br>
+    scanf("%d", &id);<br>
 
-    Patient *patient = &patients[id - 1];
+    if (id <= 0 || id > patientCount) {<br>
+        printf("Invalid patient ID.\n");<br>
+        return;<br>
+    }<br>
 
-    printf("Updating details for %s:\n", patient->name);
-    printf("Enter new name (or press enter to keep current): ");
-    getchar();  // Consume newline
-    char newName[50];
-    fgets(newName, sizeof(newName), stdin);
-    if (strlen(newName) > 1) {
-        newName[strcspn(newName, "\n")] = 0; // Remove newline
-        strcpy(patient->name, newName);
-    }
+    Patient *patient = &patients[id - 1];<br>
 
-    printf("Enter new age (or enter -1 to keep current): ");
-    int newAge;
-    scanf("%d", &newAge);
-    if (newAge != -1) {
-        patient->age = newAge;
-    }
+    printf("Updating details for %s:\n", patient->name);<br>
+    printf("Enter new name (or press enter to keep current): ");<br>
+    getchar();  // Consume newline<br>
+    char newName[50];<br>
+    fgets(newName, sizeof(newName), stdin);<br>
+    if (strlen(newName) > 1) {<br>
+        newName[strcspn(newName, "\n")] = 0; // Remove newline<br>
+        strcpy(patient->name, newName);<br>
+    }<br>
 
-    printf("Enter new gender (or press enter to keep current): ");
-    getchar();
-    char newGender[10];
-    fgets(newGender, sizeof(newGender), stdin);
-    if (strlen(newGender) > 1) {
-        newGender[strcspn(newGender, "\n")] = 0; // Remove newline
-        strcpy(patient->gender, newGender);
-    }
+    printf("Enter new age (or enter -1 to keep current): ");<br>
+    int newAge;<br>
+    scanf("%d", &newAge);<br>
+    if (newAge != -1) {<br>
+        patient->age = newAge;<br>
+    }<br>
 
-    printf("Enter new contact (or press enter to keep current): ");
-    char newContact[15];
-    fgets(newContact, sizeof(newContact), stdin);
-    if (strlen(newContact) > 1) {
-        newContact[strcspn(newContact, "\n")] = 0; // Remove newline
-        strcpy(patient->contact, newContact);
-    }
+    printf("Enter new gender (or press enter to keep current): ");<br>
+    getchar();<br>
+    char newGender[10];<br>
+    fgets(newGender, sizeof(newGender), stdin);<br>
+    if (strlen(newGender) > 1) {<br>
+        newGender[strcspn(newGender, "\n")] = 0; // Remove newline<br>
+        strcpy(patient->gender, newGender);<br>
+    }<br>
 
-    printf("Patient updated successfully!\n");
-}
+    printf("Enter new contact (or press enter to keep current): ");<br>
+    char newContact[15];<br>
+    fgets(newContact, sizeof(newContact), stdin);<br>
+    if (strlen(newContact) > 1) {<br>
+        newContact[strcspn(newContact, "\n")] = 0; // Remove newline<br>
+        strcpy(patient->contact, newContact);<br>
+    }<br>
 
-// Function to free allocated memory
-void freeMemory() {
-    free(patients);
-}
+    printf("Patient updated successfully!\n");<br>
+}<br>
 
-// Main function
-int main() {
-    int choice;
-    do {
-        printf("\n--- Patient Management System ---\n");
-        printf("1. Add Patient\n");
-        printf("2. View Patients\n");
-        printf("3. Update Patient\n");
-        printf("4. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+// Function to free allocated memory<br>
+void freeMemory() {<br>
+    free(patients);<br>
+}<br>
 
-        switch (choice) {
-            case 1:
-                addPatient();
-                break;
-            case 2:
-                viewPatients();
-                break;
-            case 3:
-                updatePatient();
-                break;
-            case 4:
-                printf("Exiting...\n");
-                break;
-            default:
-                printf("Invalid choice. Please try again.\n");
-        }
-    } while (choice != 4);
+// Main function<br>
+int main() {<br>
+    int choice;<br>
+    do {<br>
+        printf("\n--- Patient Management System ---\n");<br>
+        printf("1. Add Patient\n");<br>
+        printf("2. View Patients\n");<br>
+        printf("3. Update Patient\n");<br>
+        printf("4. Exit\n");<br>
+        printf("Enter your choice: ");<br>
+        scanf("%d", &choice);<br>
 
-    freeMemory(); // Free allocated memory before exiting
-    return 0;
-}
+        switch (choice) {<br>
+            case 1:<br>
+                addPatient();<br>
+                break;<br>
+            case 2:<br>
+                viewPatients();<br>
+                break;<br>
+            case 3:<br>
+                updatePatient();<br>
+                break;<br>
+            case 4:<br>
+                printf("Exiting...\n");<br>
+                break;<br>
+            default:<br>
+                printf("Invalid choice. Please try again.\n");<br>
+        }<br>
+    } while (choice != 4);<br>
+
+    freeMemory(); // Free allocated memory before exiting<br>
+    return 0;<br>
+}<br>
