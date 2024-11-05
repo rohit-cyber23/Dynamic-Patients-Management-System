@@ -158,3 +158,31 @@ int main() {
     freeMemory(); // Free allocated memory before exiting
     return 0;
 }
+
+Example Usage
+
+Here’s what a session might look like:
+
+--- Patient Management System ---
+1. Add Patient
+2. View Patients
+3. Update Patient
+4. Exit
+Enter your choice: 1
+
+Enter patient name: John Doe
+Enter patient age: 30
+Enter patient gender: Male
+Enter patient contact: 1234567890
+Patient added successfully!
+
+--- Patient Management System ---
+1. Add Patient
+2. View Patients
+3. Update Patient
+4. Exit
+Enter your choice: 2
+
+Patient List:
+ID    Name        Age    Gender    Contact
+1     Rohit sah    19     Male      +977 98xxx
